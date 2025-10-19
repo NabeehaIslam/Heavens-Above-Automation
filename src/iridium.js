@@ -11,6 +11,7 @@ const eventsIridium = [
   "image", "id"
 ];
 
+
 async function getTable(config) {
   let database = config.database || [];
   let counter = config.counter || 0;
