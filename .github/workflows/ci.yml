@@ -14,16 +14,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Node.js 20
+      - name: Set up Node.js 18
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          check-latest: true   # ✅ Force the latest 20.x release
+          node-version: 18
+          check-latest: true
 
-      - name: Verify Node version
-        run: node -v           # ✅ Shows in logs what version is used
+      - name: Verify Node.js version
+        run: node -v
 
-      - name: Install dependencies cleanly
+      - name: Install dependencies
         run: |
           rm -rf node_modules package-lock.json
           npm install
