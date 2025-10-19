@@ -11,34 +11,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout code
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Step 2: Set up Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '12.22.12'  # Last LTS for Node 12 (stable for older code)
+         node-version: '20'
 
-      # Step 3: Downgrade npm (avoid undici + newer fetch issues)
-      - name: Downgrade npm
-        run: npm install -g npm@6
-
-      # Step 4: Install dependencies
       - name: Install dependencies
         run: npm ci
-      
-      - name: Debug Node environment
-        run: |
-         node -v
-         npm -v
-         npm list
 
-
-      # Step 5: Run scraper
       - name: Run scraper
         run: npm start
+
 
       # Step 6: Upload results (optional)
       - name: Upload scraped data
